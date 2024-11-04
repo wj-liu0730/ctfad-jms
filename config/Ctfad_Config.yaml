@@ -1,0 +1,77 @@
+YoloParams:
+  learning_rate: 0.0001
+  training_epochs: 50
+  distributed_training: false
+  pretrained_model_path: 'outputs/yolo_e2e_split/tf_model/best_model/yolo_v8.keras'
+  evaluation_period: 5
+  model_name: yolo_v8
+  backbone_type: yolo_v8_s_backbone_coco
+  backbone_freeze: false
+  global_clipnorm: 10.0
+  box_loss_weight: 7.5
+  classification_loss_weight: 0.5
+  fpn_depth: 1
+AutoEncoderParams:
+  model_config:
+    model_name: ConvAutoEncoder
+    model_path: 'outputs/cls_ae/tf_model/best_model/model.weights.h5'
+    output_activation: sigmoid
+    latent_dim: 512
+  epochs: 100
+  evaluation_period: 5
+  learning_rate: 0.001
+  loss_function: mean_squared_error
+TransformerParams:
+  epochs: 100
+  evaluation_period: 5
+  learning_rate: 0.001
+  loss_function: binary_crossentropy
+  model_config:
+    model_name: transformer
+    model_path: 'outputs/cls_transformer/transformer_2/tf_model/best_model/model.weights.h5'
+    output_activation: sigmoid
+    patch_size: 32
+    projection_dim: 64
+    num_heads: 4
+    transformer_layers: 4
+    mlp_head_units:
+    - 2048
+    - 1024
+    - 512
+    - 64
+    - 32
+ResNetParams:
+  epochs: 100
+  evaluation_period: 5
+  learning_rate: 0.001
+  loss_function: binary_crossentropy
+  model_config:
+    model_name: resnet18_v2
+    model_path: 'outputs/cls_resnet/resnet_2/tf_model/best_model/model.weights.h5'
+    output_activation: sigmoid
+OBJDataParams:
+  dataset_name: dataset_whole
+  data_root: dataset/weldingspot/
+  train_batch_size: 8
+  val_batch_size: 4
+  test_batch_size: 1
+  num_workers: 4
+  shuffle: true
+  task_type: object_detection
+ADDataParams:
+  dataset_name: dataset_anomaly
+  data_root: dataset/weldingspot/
+  train_batch_size: 8
+  val_batch_size: 4
+  test_batch_size: 6
+  shuffle: true
+  task_type: reconstruction
+  edge_preprocess: false
+JobParams:
+  gpu: true
+  job_name: ''
+  run_mode: train
+  seed: 1
+  capture_video: false
+  output_path: ''
+  gpu_id: '0'

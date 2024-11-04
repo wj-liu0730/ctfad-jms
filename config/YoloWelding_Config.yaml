@@ -1,0 +1,30 @@
+AlgoParams:
+  learning_rate: 0.0001
+  training_epochs: 500
+  distributed_training: false
+  pretrained_model_path: ''
+  evaluation_period: 10
+  model_name: yolo_v8
+  backbone_type: yolo_v8_s_backbone_coco
+  backbone_freeze: false
+  global_clipnorm: 10.0
+  box_loss_weight: 7.5
+  classification_loss_weight: 0.5
+  fpn_depth: 1
+DataParams:
+  dataset_name: dataset_split
+  data_root: dataset/weldingspot/
+  train_batch_size: 22
+  val_batch_size: 4
+  test_batch_size: 1
+  num_workers: 4
+  shuffle: true
+  task_type: object_detection
+JobParams:
+  gpu: true
+  job_name: 'yolo_welding'
+  run_mode: train
+  seed: 1
+  capture_video: false
+  output_path: ''
+  gpu_id: '0'

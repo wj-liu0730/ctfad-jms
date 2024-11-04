@@ -1,0 +1,9 @@
+tensorflow[and-cuda]==2.16.2
+hydra-core
+tensorboardX
+tqdm
+keras_cv
+opencv-python
+typeguard
+pycocotools
+scikit-learn

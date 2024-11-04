@@ -1,0 +1,36 @@
+AlgoParams:
+  epochs: 500
+  evaluation_period: 10
+  learning_rate: 0.001
+  loss_function: binary_crossentropy
+  model_config:
+    model_name: transformer
+    model_path: 'outputs/cls_transformer/transformer_2/tf_model/best_model/model.weights.h5'
+    output_activation: sigmoid
+    patch_size: 32
+    projection_dim: 64
+    num_heads: 4
+    transformer_layers: 4
+    mlp_head_units:
+    - 2048
+    - 1024
+    - 512
+    - 64
+    - 32
+DataParams:
+  dataset_name: dataset_anomaly
+  data_root: dataset/weldingspot/
+  train_batch_size: 128
+  val_batch_size: 32
+  test_batch_size: 32
+  shuffle: true
+  task_type: classification
+  edge_preprocess: false
+JobParams:
+  gpu: true
+  job_name: ''
+  run_mode: train
+  seed: 1
+  capture_video: false
+  output_path: ''
+  gpu_id: '0'

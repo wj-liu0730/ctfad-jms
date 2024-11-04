@@ -1,0 +1,26 @@
+AlgoParams:
+  model_config:
+    model_name: resnet18_v2
+    model_path: ''
+    output_activation: sigmoid
+  epochs: 500
+  evaluation_period: 10
+  learning_rate: 0.001
+  loss_function: binary_crossentropy
+DataParams:
+  dataset_name: dataset_anomaly
+  data_root: dataset/weldingspot/
+  train_batch_size: 128
+  val_batch_size: 32
+  test_batch_size: 32
+  shuffle: true
+  task_type: classification
+  edge_preprocess: false
+JobParams:
+  gpu: true
+  job_name: ''
+  run_mode: train
+  seed: 1
+  capture_video: false
+  output_path: ''
+  gpu_id: '0'
